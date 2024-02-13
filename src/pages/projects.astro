@@ -1,5 +1,5 @@
 ---
-
+const pageTitle = "Projetos";
 ---
 
 <html lang="en">
@@ -8,18 +8,26 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<a href="/">Home</a>
 		<a href="/about/">Sobre</a>
 		<a href="/projects/">Projetos</a>
-		<h1>Projetos</h1>
+		<h1>{pageTitle}</h1>
 		<h2>conta ponto</h2>
 		<p>pra ajudar minha mulher no crochet</p>
+		<br />
 		<h2>tcc</h2>
 		<p>app de teleconsulta pro sus, tenho que consertar</p>
+		<br />
 		<h2>esse site</h2>
 		<p>feito usando Astro e Solid(?), e hospedado no netlify</p>
+		<br />
+		<ul>
+			<li><a href="/projects/project-1/">Projeto 1</a></li>
+			<li><a href="/projects/project-2/">Projeto 2</a></li>
+			<li><a href="/projects/project-3/">Projeto 3</a></li>
+		</ul>
 	</body>
 </html>
