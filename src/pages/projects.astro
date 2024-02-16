@@ -1,39 +1,22 @@
 ---
-import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Projetos";
 ---
 
-<html lang="pt-BR">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<Header />
-		<h1>{pageTitle}</h1>
-		<h2>conta ponto</h2>
-		<p>pra ajudar minha mulher no crochet</p>
-		<br />
-		<h2>tcc</h2>
-		<p>app de teleconsulta pro sus, tenho que consertar</p>
-		<br />
-		<h2>esse site</h2>
-		<p>feito usando Astro e Solid(?), e hospedado no netlify</p>
-		<br />
-		<ul>
-			<li><a href="/projects/project-1/">Projeto 1</a></li>
-			<li><a href="/projects/project-2/">Projeto 2</a></li>
-			<li><a href="/projects/project-3/">Projeto 3</a></li>
-		</ul>
-		<Footer />
-		<script>
-			import "../scripts/menu.js";
-		</script>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+	<h2>conta ponto</h2>
+	<p>pra ajudar minha mulher no crochet</p>
+	<br />
+	<h2>tcc</h2>
+	<p>app de teleconsulta pro sus, tenho que consertar</p>
+	<br />
+	<h2>esse site</h2>
+	<p>feito usando Astro e Solid(?), e hospedado no netlify</p>
+	<br />
+	<ul>
+		<li><a href="/projects/project-1/">Projeto 1</a></li>
+		<li><a href="/projects/project-2/">Projeto 2</a></li>
+		<li><a href="/projects/project-3/">Projeto 3</a></li>
+	</ul>
+</BaseLayout>
