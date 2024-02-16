@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
-import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const pageTitle = "Sobre mim";
 
@@ -22,7 +22,7 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -42,7 +42,7 @@ const textCase = "uppercase";
         </style>
     </head>
     <body>
-        <Navigation />
+        <Header />
         <h1>{pageTitle}</h1>
         <h2>tilapiane my beloved</h2>
         <p>Odeio react. esse site não vai ter react</p>
@@ -80,5 +80,8 @@ const textCase = "uppercase";
             )
         }
         <Footer />
+        <script>
+            import "../scripts/menu.js";
+        </script>
     </body>
 </html>
