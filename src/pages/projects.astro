@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import Project from "../components/Project.astro";
+const allProjects = await Astro.glob("../pages/projects/*.md");
 const pageTitle = "Projetos";
 ---
 
@@ -15,8 +16,10 @@ const pageTitle = "Projetos";
 	<p>feito usando Astro e Solid(?), e hospedado no netlify</p>
 	<br />
 	<ul>
-		<li><a href="/projects/project-1/">Projeto 1</a></li>
-		<li><a href="/projects/project-2/">Projeto 2</a></li>
-		<li><a href="/projects/project-3/">Projeto 3</a></li>
+		{
+			allProjects.map((project) => (
+				<Project url={project.url} title={project.frontmatter.title} />
+			))
+		}
 	</ul>
 </BaseLayout>
