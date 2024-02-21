@@ -4,31 +4,31 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
     const allProjects = await Astro.glob("../projects/*.md");
-    return [
-        { params: { tag: "astro" }, props: { projects: allProjects } },
-        { params: { tag: "successes" }, props: { projects: allProjects } },
-        { params: { tag: "community" }, props: { projects: allProjects } },
-        { params: { tag: "blogging" }, props: { projects: allProjects } },
-        { params: { tag: "setbacks" }, props: { projects: allProjects } },
-        {
-            params: { tag: "learning in public" },
-            props: { projects: allProjects },
-        },
+    const uniqueTags = [
+        ...new Set(
+            allProjects.map((project) => project.frontmatter.tags).flat(),
+        ),
     ];
+    return uniqueTags.map((tag) => {
+        const filteredProjects = allProjects.filter((post) =>
+            post.frontmatter.tags.includes(tag),
+        );
+        return {
+            params: { tag },
+            props: { projects: filteredProjects },
+        };
+    });
 }
 
 const { tag } = Astro.params;
 const { projects } = Astro.props;
-const filteredPosts = projects.filter((project) =>
-    project.frontmatter.tags?.includes(tag),
-);
 ---
 
 <BaseLayout pageTitle={tag}>
     <p>Projects tagged with {tag}</p>
     <ul>
         {
-            filteredPosts.map((project) => (
+            projects.map((project) => (
                 <Project url={project.url} title={project.frontmatter.title} />
             ))
         }
