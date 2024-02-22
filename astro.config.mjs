@@ -1,6 +1,9 @@
 import { defineConfig } from 'astro/config';
 
+import solidJs from "@astrojs/solid-js";
+
 // https://astro.build/config
 export default defineConfig({
-    site: "https://mattoi.netlify.app/"
+  site: "https://mattoi.netlify.app/",
+  integrations: [solidJs()]
 });
